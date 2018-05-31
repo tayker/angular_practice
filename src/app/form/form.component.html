@@ -1,0 +1,43 @@
+<form [formGroup]="form">
+    <div *ngFor="let prop of personProps">
+       <label>{{prop.label}}: </label>
+       <div [ngSwitch]="prop.type">
+            <input [type]="prop.type" 
+            [formControlName]="prop.key"
+            *ngSwitchCase="'text'">
+            <input [type]="prop.type" 
+            [formControlName]="prop.key"
+            *ngSwitchCase="'number'">
+            <input [type]="prop.type" 
+            [formControlName]="prop.key"
+            *ngSwitchCase="'email'">
+            
+            <div *ngSwitchCase="'radio'">
+                <label *ngFor="let option of prop.options">
+                    <input type="radio"
+                    [name]="prop.key"
+                    [formControlName]="prop.key"
+                    [value]="option.value">
+                    
+                    {{option.label}}
+                </label>
+            </div>
+            
+            <select *ngSwitchCase="'select'"
+               [formControlName]="prop.key">
+                <option *ngFor="let option of prop.options" 
+                [value]="option.value">
+                    {{option.label}}
+                </option>
+            </select>
+        </div>
+        <div class="error" *ngIf="form.get(prop.key).invalid && (form.get(prop.key).dirty || form.get(prop.key).touched)">
+            <div *ngIf="form.get(prop.key).errors.required">
+                You have provide a value
+            </div>
+            <div *ngIf="form.get(prop.key).errors.required">
+                Minimum {{form.get(prop.key).errors.min.min}}
+            </div>
+        </div>
+    </div>
+</form>

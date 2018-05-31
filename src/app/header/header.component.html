@@ -1,0 +1,14 @@
+<header class="header">
+    <div class="container">
+        <carousel-component>
+            <ng-container class="item-carousel">
+                <div class="item-carousel" *ngFor="let slide of slides">
+                    <a routerLink="{{slide.url}}">
+                        {{slide.linkDescr}}
+                    </a>
+                    <img src="{{slide.imgUrl}}" alt="{{slide.title}}">
+                </div>
+            </ng-container>
+        </carousel-component>
+    </div>
+</header>

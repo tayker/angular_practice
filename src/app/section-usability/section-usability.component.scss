@@ -1,0 +1,22 @@
+.section{
+    margin: 40px 0;
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        text-align: center;
+        font-family: 'Play', sans-serif;
+        
+        h2{
+            font-family: 'Signika', sans-serif;
+            font-size: 44px;
+            color: #52565e;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+        }
+        .text-description{
+            color: #4d4f53;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    }
+}
