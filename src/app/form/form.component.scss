@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+form{
+    max-width: 400px;
+    margin: auto;
+    
+    .button{
+        border: none;
+        background-color: #000000;
+        color: #fff;
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+    .label{
+        font-size: 14px;
+        margin: 14px 0 0 0;
+        display: block;
+        color: #59626a;
+        position: relative;
+        text-align: left;
+        
+        &:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            width: 10px;
+            height: 4px;
+            background-color: #ff4c4c;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: .3s;
+        }
+        
+        &-text{
+            transition: .3s;
+            will-change: transform;
+            transform: translate3d(0,0,0);
+        }
+    }
+    input, select{
+        width: 100%;
+        padding: 5px 10px;
+        font-size: 20px;
+        outline: none;
+        border: 1px solid #59626a;
+        color: #323b43;
+        
+        &[type="radio"]{
+            padding: 0;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            border: 1px solid black;
+            cursor: pointer;
+            transition: .3s; 
+            
+            &:checked{
+                transform: scale(0.5) translate3D(0,0,0);
+                background-color: #00a98f;
+                border-color: #00a98f;
+            }
+        }
+    }
+    select{
+        cursor: pointer;
+    }
+    .wrapper{
+        &-radio{
+            display: flex;
+            justify-content: space-between;
+            max-width: 200px;
+            margin: auto;
+        }
+        &-item{
+            &:hover .label{
+                &:before{
+                    opacity: 1;
+                    left: -26px;
+                }
+            }
+        }
+        &-btn{
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+    .media-item{
+        width: 16px;
+        height: 16px;
+        background-color: #ff4c4c;
+        border-radius: 50%;
+        position: absolute;
+        left: -16px;
+    }
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

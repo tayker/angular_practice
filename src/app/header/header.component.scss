@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
 .header{
+    transition: .3s;
     .container{
         max-width: 1200px;
         margin: auto;
@@ -9,6 +11,12 @@
         }
         .item-carousel{
             position: relative;
+            
+            &.actual{
+                a{
+                    color: #003b64;
+                }
+            }
         }
         a{
             position: absolute;
@@ -16,9 +24,25 @@
             top: 50%;
             transform: translate(-50%, -50%);
             text-decoration: none;
-            color: black;
-            font-size: 24px;
+            color: #222;
+            font-size: 44px;
+            letter-spacing: 10px;
             font-weight: bold;
+            font-family: 'Acme', sans-serif;
+        }
+    }
+    &.mini{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        .container{
+            .compo{
+                height: 300px;
+                .item-carousel{
+                    height: 200px;
+                }
+            }
         }
     }
 }

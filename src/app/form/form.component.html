@@ -1,6 +1,6 @@
 <form [formGroup]="form">
-    <div *ngFor="let prop of personProps">
-       <label>{{prop.label}}: </label>
+    <div *ngFor="let prop of personProps" class="wrapper-item">
+       <label class="label"><div class="label-text">{{prop.label}}:</div> </label>
        <div [ngSwitch]="prop.type">
             <input [type]="prop.type" 
             [formControlName]="prop.key"
@@ -12,7 +12,7 @@
             [formControlName]="prop.key"
             *ngSwitchCase="'email'">
             
-            <div *ngSwitchCase="'radio'">
+            <div *ngSwitchCase="'radio'" class="wrapper-radio">
                 <label *ngFor="let option of prop.options">
                     <input type="radio"
                     [name]="prop.key"
@@ -39,5 +39,10 @@
                 Minimum {{form.get(prop.key).errors.min.min}}
             </div>
         </div>
+    </div>
+<div class="wrapper-btn">
+        <button class="button">
+            Submit
+        </button>
     </div>
 </form>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+
+import { FormComponent } from './form/form.component';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -6,50 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-    person = {
-        firstname: {
-            label:  'FIrstname',
-            value:  'Juri',
-            type:   'text',
-            validators: {
-                required: true
-            }
-        },
-        lastname: {
-            label:  'Lastname',
-            value:  'Kovtuh',
-            type:   'text'
-        },
-        age: {
-            label:  'Age',
-            value:  32,
-            type:   'number'
-        },
-        email: {
-            label:  'E-mail',
-            value:  'kovtuh228@gmail.com',
-            type:   'email'
-        },
-        city: {
-            label: 'City',
-            value: 'Kv',
-            type: 'select',
-            options: [
-                { label: '(choose one)', value: ''},
-                { label: 'Kiev', value: 'Kv'},
-                { label: 'Poltava', value: 'Pl'},
-                { label: 'Kharkiv', value: 'Kh'}
-            ]
-        },
-        gender: {
-            label: 'Gender',
-            value: 'male',
-            type: 'radio',
-            options: [
-                { label: 'Male', value: 'male'},
-                { label: 'FeMale', value: 'female'}
-            ]
+    
+    @HostListener("window:scroll", [])
+    onWindowScroll(){
+        if(window.pageYOffset > 100){
+//            header.classList.add('mini');
         }
-    };
+        else{
+//            header.classList.remove('mini');
+        }
+    }
+    
+//    currentSlide: number = 2;
+    
+    ngOnInit(){
+        var header = document.getElementById('header');
+
+    }
 }

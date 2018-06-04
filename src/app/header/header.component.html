@@ -1,8 +1,8 @@
-<header class="header">
+<header class="header" id="header">
     <div class="container">
-        <carousel-component>
+        <carousel-component class="compo" [initialSlide]="2" (onSlideChange)="getStatus($event)">
             <ng-container class="item-carousel">
-                <div class="item-carousel" *ngFor="let slide of slides">
+                <div class="item-carousel" *ngFor="let slide of slides; let i = index">
                     <a routerLink="{{slide.url}}">
                         {{slide.linkDescr}}
                     </a>
