@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+    @Input()
+    isMini;
     slides = [
         { url: '/getStarted', linkDescr: 'Get Started', imgUrl: 'http://via.placeholder.com/350x150', title: 'dog'},
         { url: '/usability', linkDescr: 'Usability', imgUrl: 'http://via.placeholder.com/350x150', title: 'cat'},
@@ -15,10 +19,11 @@ export class HeaderComponent implements OnInit {
         { url: '/help', linkDescr: 'Help', imgUrl: 'http://via.placeholder.com/350x150', title: 'mouse'}
     ]
     
-  constructor() { }
+  constructor(private router: Router) { }
 
     getStatus(event){
-        console.log(event.activeIndex);
+        console.log(event);
+       this.router.navigateByUrl(this.slides[event.activeIndex].url)
     }
   ngOnInit() {
       

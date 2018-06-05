@@ -1,4 +1,5 @@
-<header class="header" id="header">
+<header class="header" id="header"
+   [class.mini]="isMini">
     <div class="container">
         <carousel-component class="compo" [initialSlide]="2" (onSlideChange)="getStatus($event)">
             <ng-container class="item-carousel">

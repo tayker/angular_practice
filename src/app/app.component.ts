@@ -9,21 +9,20 @@ import { HeaderComponent } from './header/header.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    
+    public isMini: boolean = false;
     @HostListener("window:scroll", [])
     onWindowScroll(){
+       
+        
         if(window.pageYOffset > 100){
-//            header.classList.add('mini');
+            console.log(this.isMini = true)
         }
         else{
-//            header.classList.remove('mini');
+            console.log(this.isMini = false)
         }
     }
     
-//    currentSlide: number = 2;
-    
     ngOnInit(){
-        var header = document.getElementById('header');
 
     }
 }
